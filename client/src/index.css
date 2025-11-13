@@ -1,0 +1,620 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 统一定义“系统默认字体”变量，整个页面都用它 */
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+
+/* ===== 主题：深色 / 浅色 ===== */
+
+/* 深色 */
+.app-root.theme-dark .app-gradient-bg {
+  background: radial-gradient(circle at top left, #4f46e5 0, #020617 40%),
+    radial-gradient(circle at bottom right, #06b6d4 0, #020617 45%);
+  opacity: 0.35;
+}
+
+.app-root.theme-dark .app-container {
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+}
+
+.app-root.theme-dark .card {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(148, 163, 184, 0.18);
+}
+
+.app-root.theme-dark .output-textarea,
+.app-root.theme-dark .field-group input,
+.app-root.theme-dark .field-group textarea,
+.app-root.theme-dark .field-group select {
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+}
+
+/* 浅色 */
+.app-root.theme-light .app-gradient-bg {
+  background: radial-gradient(circle at top left, #bfdbfe 0, #e5e7eb 40%),
+    radial-gradient(circle at bottom right, #e0f2fe 0, #e5e7eb 45%);
+  opacity: 0.8;
+}
+
+.app-root.theme-light .app-container {
+  background: rgba(248, 250, 252, 0.96);
+  color: #0f172a;
+  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.25);
+}
+
+/* 浅色卡片 */
+.app-root.theme-light .card {
+  background: #ffffff;
+  border-color: #e5e7eb;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.app-root.theme-light .card:hover {
+  background: #ffffff;
+  border-color: #c4b5fd;
+  box-shadow: 0 14px 38px rgba(129, 140, 248, 0.25);
+}
+
+.app-root.theme-light .card h3,
+.app-root.theme-light .field-group label {
+  color: #374151 !important;
+  /* 深灰色，保证可读 */
+  font-weight: 600;
+  /* 稍微加粗，结构更清晰 */
+  opacity: 1 !important;
+  /* 去掉深色模式原来的透明度覆盖 */
+}
+
+/* 浅色输入区域 */
+.app-root.theme-light .field-group input,
+.app-root.theme-light .field-group textarea,
+.app-root.theme-light .field-group select {
+  background: #f9fafb;
+  color: #0f172a;
+  border-color: #e5e7eb;
+}
+
+.app-root.theme-light .field-group input:focus,
+.app-root.theme-light .field-group textarea:focus,
+.app-root.theme-light .field-group select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.45);
+  background: #ffffff;
+}
+
+/* 浅色输出框 */
+.app-root.theme-light .output-textarea {
+  background: #f9fafb;
+  color: #0f172a;
+}
+
+.app-root.theme-light .output-placeholder {
+  border-color: #d1d5db;
+  color: #6b7280;
+}
+
+/* 浅色 loading 区块 */
+.app-root.theme-light .output-loading {
+  background: radial-gradient(circle at top,
+      rgba(129, 140, 248, 0.22),
+      transparent),
+    #e5e7eb;
+  border-color: rgba(129, 140, 248, 0.85);
+}
+
+/* 浅色主按钮 / 次按钮 / 主题按钮 */
+.app-root.theme-light .primary-btn {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
+}
+
+.app-root.theme-light .secondary-btn {
+  background: #ffffff;
+  color: #111827;
+  border-color: #e5e7eb;
+}
+
+.app-root.theme-light .secondary-btn:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.app-root.theme-light .theme-toggle-btn {
+  background: #ffffff;
+  color: #111827;
+  border-color: #e5e7eb;
+}
+
+.app-root.theme-light .theme-toggle-btn:hover {
+  background: #e5e7eb;
+  box-shadow: 0 6px 18px rgba(148, 163, 184, 0.5);
+}
+
+/* 浅色模式：输入框 placeholder 颜色优化 */
+.app-root.theme-light ::placeholder {
+  color: #6b7280;
+  /* 比原先淡灰色深一档，更易阅读 */
+  opacity: 1;
+  /* 去掉系统默认的透明度 */
+}
+
+
+/* 浅色小提示文本 */
+.app-root.theme-light .app-subtitle,
+.app-root.theme-light .output-tip,
+.app-root.theme-light .copy-status {
+  color: #6b7280;
+}
+
+/* 浅色错误提示 */
+.app-root.theme-light .error-text {
+  color: #b91c1c;
+}
+
+
+/* body 以及常见表单控件全部使用同一套系统字体 */
+body,
+input,
+textarea,
+select,
+button {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+/* 背景和前景颜色 */
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #3b82f6 0, #020617 45%);
+  color: #e5e7eb;
+}
+
+/* 背景 + 容器 */
+.app-root {
+  position: relative;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.app-gradient-bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top left, #4f46e5 0, #020617 40%),
+    radial-gradient(circle at bottom right, #06b6d4 0, #020617 45%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.app-container {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.9);
+  padding: 24px 28px 28px;
+  backdrop-filter: blur(18px);
+}
+
+/* 顶部 */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.app-header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 1000;
+  letter-spacing: 0.04em;
+}
+
+.app-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+/* 主题切换按钮样式 */
+.theme-toggle-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  padding: 4px 12px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease,
+    box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(30, 64, 175, 0.95);
+  border-color: rgba(129, 140, 248, 0.95);
+  box-shadow: 0 8px 24px rgba(30, 64, 175, 0.7);
+}
+
+/* 让标题块垂直排列标题 + 副标题 + 主题按钮 */
+.app-title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 控制主题切换按钮的放置位置 */
+.app-title-block .theme-toggle-btn {
+  align-self: flex-start;
+  /* 靠左对齐 */
+  margin-top: 6px;
+}
+
+.app-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.app-header-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* 主布局 */
+.app-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+  gap: 20px;
+}
+
+/* 卡片通用 */
+.card {
+  background: rgba(15, 23, 42, 0.95);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease, background 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+  border-color: rgba(129, 140, 248, 0.6);
+  background: rgba(15, 23, 42, 0.98);
+}
+
+/* 表单列 */
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.form-header-row h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.form-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* 输出列 */
+.output-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.output-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.output-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.output-tip {
+  margin: 10px 0 6px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.output-box {
+  flex: 1;
+  position: relative;
+  margin-top: 6px;
+}
+
+/* 输出文本区域 */
+.output-textarea {
+  width: 100%;
+  min-height: 420px;
+  border-radius: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 13px;
+}
+
+/* 占位说明 */
+.output-placeholder {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px dashed rgba(148, 163, 184, 0.45);
+  padding: 18px;
+  font-size: 13px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* loading 区域 */
+.output-loading {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  border: 1px solid rgba(129, 140, 248, 0.7);
+  background: radial-gradient(circle at top, rgba(129, 140, 248, 0.14), transparent),
+    rgba(15, 23, 42, 0.96);
+  font-size: 13px;
+}
+
+/* 字段组 */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.field-group label {
+  font-size: 13px;
+  color: #e5e7eb;
+}
+
+.field-group input,
+.field-group textarea,
+.field-group select {
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 8px 9px;
+  background: rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease,
+    background 0.16s ease, transform 0.08s ease;
+}
+
+.field-group input:focus,
+.field-group textarea:focus,
+.field-group select:focus {
+  border-color: rgba(129, 140, 248, 0.9);
+  box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.5);
+  background: rgba(15, 23, 42, 0.98);
+  transform: translateY(-0.5px);
+}
+
+.field-group textarea {
+  resize: vertical;
+}
+
+/* slider 组 */
+.slider-group {
+  min-width: 190px;
+}
+
+.slider-group input[type="range"] {
+  width: 100%;
+}
+
+.slider-value {
+  font-size: 12px;
+  color: #a5b4fc;
+  margin-left: 4px;
+}
+
+/* 小数字输入 */
+.small-number input {
+  width: 100px;
+}
+
+/* 按钮 */
+.primary-btn,
+.secondary-btn {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+/* 主按钮 */
+.primary-btn {
+  background: linear-gradient(135deg, #6366f1, #0ea5e9);
+  color: #ffffff;
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.35);
+  border: none;
+}
+
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.5);
+}
+
+/* 次级按钮（“一键填充示例”） */
+.secondary-btn {
+  background: rgba(255, 255, 255, 0.1);
+  /* 深色下半透明 */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.secondary-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 浅色主题的次级按钮（强覆盖） */
+.app-root.theme-light .secondary-btn {
+  background: #ffffff;
+  color: #1f2937;
+  /* 深灰，提高可读性 */
+  border-color: #d1d5db;
+}
+
+.app-root.theme-light .secondary-btn:hover:not(:disabled) {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* loading 按钮 */
+.primary-btn-loading {
+  background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+}
+
+/* spinner */
+.spinner,
+.spinner-large {
+  border-radius: 999px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #e5e7eb;
+  animation: spin 0.6s linear infinite;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+}
+
+.spinner-large {
+  width: 26px;
+  height: 26px;
+  border-width: 3px;
+}
+
+/* 文本提示 */
+.error-text {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #fca5a5;
+}
+
+.copy-status {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #a5b4fc;
+}
+
+/* 动画 */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.45s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式 */
+@media (max-width: 960px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  .app-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .output-card {
+    margin-top: 8px;
+  }
+
+  .app-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .app-header-controls {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-root {
+    padding: 12px;
+  }
+
+  .app-container {
+    border-radius: 14px;
+    padding: 16px;
+  }
+}
