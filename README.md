@@ -1,6 +1,7 @@
 # Prompt Optimizer for Vibecoding
 
 **本项目完全由ChatGPT-5.1-thinking完成**
+
 一个基于 **React + Vite（前端）** 与 **Node.js + Express（后端）** 的小工具，
 用于将自然语言描述的编程任务信息，转化为结构化、高质量、适用于 vibecoding 的 Markdown Prompt（内部包含 JSON 片段）。
 
