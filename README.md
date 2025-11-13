@@ -1,5 +1,6 @@
 # Prompt Optimizer for Vibecoding
 
+**本项目完全由ChatGPT-5.1-thinking完成**
 一个基于 **React + Vite（前端）** 与 **Node.js + Express（后端）** 的小工具，
 用于将自然语言描述的编程任务信息，转化为结构化、高质量、适用于 vibecoding 的 Markdown Prompt（内部包含 JSON 片段）。
 
@@ -52,8 +53,3 @@ Vite 默认端口通常是 `http://localhost:5173`。
 4. 点击右上角的「复制 Prompt」即可一键复制，在其它模型（如代码助手、ChatGPT、Claude 等）中直接使用。
 
 ---
-
-如果你想把这个项目做成完整的「Prompt Agent 平台」，可以在此基础上继续扩展：
-- 增加历史记录与多项目管理
-- 为不同任务类型（如“修 Bug”“写测试”“重构组件”）预设 Prompt 模板
-- 加上用户登录、多模型对比等功能
